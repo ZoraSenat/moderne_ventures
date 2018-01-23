@@ -1,0 +1,1 @@
+{"name":"Moderne Ventures","repository":"https://github.com/ZoraSenat/moderne_ventures","env":{"CLOUDINARY_CLOUD_NAME":{"required":true},"CLOUDINARY_API_KEY":{"required":true},"CLOUDINARY_API_SECRET":{"required":true},"ROLLBAR_ACCESS_TOKEN":{"required":true}}}
