@@ -20,7 +20,7 @@
 
       <% @companies.each do |company| %>
       <tr>
-        <td><%= company.industry_id %></td>
+        <td><%= company.industry.industry %></td>
         <td><%= company.company %></td>
         <td><%= company.company_description %></td>
         <td><%= company.city %></td>
