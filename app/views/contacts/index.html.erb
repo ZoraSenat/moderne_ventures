@@ -3,6 +3,134 @@
     Contacts
     <a href="/contacts/new" class="btn btn-lg btn-success">New Contact</a>
   </h1>
+</div><div class="row mb-1">
+  <div class="col-md-12">
+    <%= search_form_for @q, :class => collapse_search_form, :id => "contacts_filters" do |f| %>
+      <p class="lead">Narrow results:</p>
+
+        <div class="form-group">
+    <%= f.label :first_name_cont, "First name contains" %>
+    <%= f.text_field :first_name_cont, :class => "form-control", :placeholder => "First name contains" %>
+  </div>
+
+<div class="form-group">
+    <%= f.label :pilots_eq, "Pilots" %>
+    <div>
+      <label class="radio-inline">
+        <%= f.radio_button :pilots_eq, "1", checked: ((params[:q] && params[:q][:pilots_eq]) == "1" ? "checked" : "") %> Yes
+      </label>
+      <label class="radio-inline">
+        <%= f.radio_button :pilots_eq, "0", checked: ((params[:q] && params[:q][:pilots_eq]) == "0" ? "checked" : "")%> No
+      </label>
+      <label class="radio-inline">
+        <%= f.radio_button :pilots_eq, ""%> Either
+      </label>
+    </div>
+  </div>
+
+<div class="form-group">
+    <%= f.label :notes_cont, "Notes contains" %>
+    <%= f.text_field :notes_cont, :class => "form-control", :placeholder => "Notes contains" %>
+  </div>
+
+<div class="form-group">
+    <%= f.label :phone_cont, "Phone contains" %>
+    <%= f.text_field :phone_cont, :class => "form-control", :placeholder => "Phone contains" %>
+  </div>
+
+<div class="form-group">
+    <%= f.label :email_cont, "Email contains" %>
+    <%= f.text_field :email_cont, :class => "form-control", :placeholder => "Email contains" %>
+  </div>
+
+<div class="form-group">
+    <%= f.label :title_cont, "Title contains" %>
+    <%= f.text_field :title_cont, :class => "form-control", :placeholder => "Title contains" %>
+  </div>
+
+<div class="form-group">
+    <%= f.label :twitter_cont, "Twitter contains" %>
+    <%= f.text_field :twitter_cont, :class => "form-control", :placeholder => "Twitter contains" %>
+  </div>
+
+<div class="form-group">
+    <%= f.label :linkedin_cont, "Linkedin contains" %>
+    <%= f.text_field :linkedin_cont, :class => "form-control", :placeholder => "Linkedin contains" %>
+  </div>
+
+<div class="form-group">
+    <%= f.label :bio_cont, "Bio contains" %>
+    <%= f.text_field :bio_cont, :class => "form-control", :placeholder => "Bio contains" %>
+  </div>
+
+<div class="form-group">
+    <%= f.label :last_name_cont, "Last name contains" %>
+    <%= f.text_field :last_name_cont, :class => "form-control", :placeholder => "Last name contains" %>
+  </div>
+
+<div class="form-group">
+          <%= f.label :created_at, "Created at" %>
+          <div class="row">
+            <div class='col-md-6 mb-1'>
+              <div class='input-group date' id='created_atgteqPicker'>
+                  <%= f.text_field :created_at_gteq, :class => "form-control", :placeholder => "Created at greater than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+
+            <div class='col-md-6'>
+              <div class='input-group date' id='created_atlteqPicker'>
+                  <%= f.text_field :created_at_lteq, :class => "form-control", :placeholder => "Created at less than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+          </div>
+      </div>
+      <script type="text/javascript">
+          $(function () {
+              $('#created_atgteqPicker').datetimepicker({
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#created_atlteqPicker').datetimepicker({
+                  useCurrent: false,
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#created_atgteqPicker').on("dp.change", function (e) {
+                  $('#created_atlteqPicker').data("DateTimePicker").minDate(e.date);
+              });
+              $('#created_atlteqPicker').on("dp.change", function (e) {
+                  $('#created_atgteqPicker').data("DateTimePicker").maxDate(e.date);
+              });
+          });
+      </script>
+
+        <div class="form-group">
+      <%= f.label :programs_name_cont, "Program name contains" %>
+      <%= f.text_field :programs_name_cont, :class => "form-control", :placeholder => "Program name contains" %>
+    </div>
+
+<div class="form-group">
+      <%= f.label :company_company_cont, "Company company contains" %>
+      <%= f.text_field :company_company_cont, :class => "form-control", :placeholder => "Company company contains" %>
+    </div>
+
+<div class="form-group">
+      <%= f.label :source_name_cont, "Source name contains" %>
+      <%= f.text_field :source_name_cont, :class => "form-control", :placeholder => "Source name contains" %>
+    </div>
+
+      <%= f.submit :class => "btn btn-primary btn-block mb-1" %>
+
+      <a href="/contacts" class="btn btn-default btn-block mb-1">Clear filters</a>
+    <% end %>
+    <a class="btn btn-default btn-block mb-1" data-toggle="collapse" href="#contacts_filters">
+      Show Filters
+    </a>
+  </div>
 </div>
 
 <div class="row">

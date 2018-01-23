@@ -1,6 +1,7 @@
 class IndustriesController < ApplicationController
   def index
-    @industries = Industry.page(params[:page]).per(10)
+    @q = Industry.ransack(params[:q])
+    @industries = @q.result(:distinct => true).includes(:companies).page(params[:page]).per(10)
 
     render("industries/index.html.erb")
   end
