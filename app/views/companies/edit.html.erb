@@ -24,7 +24,7 @@
           Industry
         </label>
 
-        <input type="text" id="industry_id" name="industry_id" placeholder="Industry" class="form-control" value="<%= @company.industry_id %>">
+        <%= select_tag(:industry_id, options_from_collection_for_select(Industry.all, :id, :industry, @company.industry_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for company -->
