@@ -51,7 +51,7 @@
           Source
         </label>
 
-        <input type="text" id="source_id" name="source_id" placeholder="Source" class="form-control" value="<%= @contact.source_id %>">
+        <%= select_tag(:source_id, options_from_collection_for_select(Source.all, :id, :name, @contact.source_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for bio -->
