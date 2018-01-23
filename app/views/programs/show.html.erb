@@ -15,7 +15,13 @@
       <dd><%= @program.end_date %></dd>
 
       <dt>Contact</dt>
-      <dd><%= @program.contact_id %></dd>
+      <dd>
+        <% if @program.contact.present? %>
+          <a href="/contacts/<%= @program.contact_id %>">
+            <%= @program.contact.first_name %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Location</dt>
       <dd><%= @program.location %></dd>

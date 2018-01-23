@@ -29,8 +29,20 @@
       <tr>
         <td><%= contact.first_name %></td>
         <td><%= contact.last_name %></td>
-        <td><%= contact.company.company %></td>
-        <td><%= contact.source.name %></td>
+        <td>
+          <% if contact.company.present? %>
+            <a href="/companies/<%= contact.company.id %>">
+              <%= contact.company.company %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if contact.source.present? %>
+            <a href="/sources/<%= contact.source.id %>">
+              <%= contact.source.name %>
+            </a>
+          <% end %>
+        </td>
         <td><%= contact.bio %></td>
         <td><%= contact.linkedin %></td>
         <td><%= contact.twitter %></td>

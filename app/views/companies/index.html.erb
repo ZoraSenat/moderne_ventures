@@ -20,7 +20,13 @@
 
       <% @companies.each do |company| %>
       <tr>
-        <td><%= company.industry.industry %></td>
+        <td>
+          <% if company.industry.present? %>
+            <a href="/industries/<%= company.industry.id %>">
+              <%= company.industry.industry %>
+            </a>
+          <% end %>
+        </td>
         <td><%= company.company %></td>
         <td><%= company.company_description %></td>
         <td><%= company.city %></td>

@@ -12,10 +12,22 @@
       <dd><%= @contact.last_name %></dd>
 
       <dt>Company</dt>
-      <dd><%= @contact.company_id %></dd>
+      <dd>
+        <% if @contact.company.present? %>
+          <a href="/companies/<%= @contact.company_id %>">
+            <%= @contact.company.company %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Source</dt>
-      <dd><%= @contact.source_id %></dd>
+      <dd>
+        <% if @contact.source.present? %>
+          <a href="/sources/<%= @contact.source_id %>">
+            <%= @contact.source.name %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Bio</dt>
       <dd><%= @contact.bio %></dd>
