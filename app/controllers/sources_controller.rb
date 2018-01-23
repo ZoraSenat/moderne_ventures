@@ -6,6 +6,7 @@ class SourcesController < ApplicationController
   end
 
   def show
+    @contact = Contact.new
     @source = Source.find(params[:id])
 
     render("sources/show.html.erb")
