@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Program resource:
+  # CREATE
+  get "/programs/new", :controller => "programs", :action => "new"
+  post "/create_program", :controller => "programs", :action => "create"
+
+  # READ
+  get "/programs", :controller => "programs", :action => "index"
+  get "/programs/:id", :controller => "programs", :action => "show"
+
+  # UPDATE
+  get "/programs/:id/edit", :controller => "programs", :action => "edit"
+  post "/update_program/:id", :controller => "programs", :action => "update"
+
+  # DELETE
+  get "/delete_program/:id", :controller => "programs", :action => "destroy"
+  #------------------------------
+
   # Routes for the Company resource:
   # CREATE
   get "/companies/new", :controller => "companies", :action => "new"
