@@ -1,6 +1,6 @@
 class ProgramsController < ApplicationController
   def index
-    @programs = Program.all
+    @programs = Program.page(params[:page]).per(10)
 
     render("programs/index.html.erb")
   end
