@@ -1,0 +1,82 @@
+<!-- Validation failure messages -->
+<% if @company.errors.any? %>
+  <% @company.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Company #<%= @company.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_company/<%= @company.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for industry_id -->
+      <div class="form-group">
+        <label for="industry_id" class="control-label">
+          Industry
+        </label>
+
+        <input type="text" id="industry_id" name="industry_id" placeholder="Industry" class="form-control" value="<%= @company.industry_id %>">
+      </div>
+
+      <!-- Label and input for company -->
+      <div class="form-group">
+        <label for="company" class="control-label">
+          Company
+        </label>
+
+        <input type="text" id="company" name="company" placeholder="Company" class="form-control" value="<%= @company.company %>">
+      </div>
+
+      <!-- Label and input for company_description -->
+      <div class="form-group">
+        <label for="company_description" class="control-label">
+          Company description
+        </label>
+
+        <textarea id="company_description" name="company_description" placeholder="Company description" class="form-control" rows="3"><%= @company.company_description %></textarea>
+      </div>
+
+      <!-- Label and input for city -->
+      <div class="form-group">
+        <label for="city" class="control-label">
+          City
+        </label>
+
+        <input type="text" id="city" name="city" placeholder="City" class="form-control" value="<%= @company.city %>">
+      </div>
+
+      <!-- Label and input for state -->
+      <div class="form-group">
+        <label for="state" class="control-label">
+          State
+        </label>
+
+        <input type="text" id="state" name="state" placeholder="State" class="form-control" value="<%= @company.state %>">
+      </div>
+
+      <!-- Label and input for website -->
+      <div class="form-group">
+        <label for="website" class="control-label">
+          Website
+        </label>
+
+        <input type="text" id="website" name="website" placeholder="Website" class="form-control" value="<%= @company.website %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Company
+      </button>
+      or
+      <a href="/companies/<%= @company.id %>">Cancel</a>
+    </form>
+  </div>
+</div>
