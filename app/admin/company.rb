@@ -1,5 +1,7 @@
 ActiveAdmin.register Company do
 
+ permit_params :industry_id, :company, :company_description, :city, :state, :website
+
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
