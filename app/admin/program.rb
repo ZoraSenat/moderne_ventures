@@ -1,5 +1,7 @@
 ActiveAdmin.register Program do
 
+ permit_params :name, :start_date, :end_date, :contact_id, :location, :category
+
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
