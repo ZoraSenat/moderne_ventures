@@ -1,0 +1,37 @@
+<!-- Validation failure messages -->
+<% if @industry.errors.any? %>
+  <% @industry.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Industry</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_industry" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for industry -->
+      <div class="form-group">
+        <label for="industry" class="control-label">
+          Industry
+        </label>
+
+        <input type="text" id="industry" name="industry" placeholder="Industry" class="form-control" value="<%= @industry.industry %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Industry
+      </button>
+      or
+      <a href="/industries">Cancel</a>
+    </form>
+  </div>
+</div>
